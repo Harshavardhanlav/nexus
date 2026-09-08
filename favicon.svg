@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img">
+  <title>NEXUS</title>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="100%" stop-color="#333333" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="#ffffff"/>
+  <path d="M30 30h20l24 34 24-34h20v68H30V30Z" fill="url(#g)"/>
+  <path d="M40 50v34h48V50L64 84 40 50Z" fill="#ffffff" opacity="0.92"/>
+</svg>

@@ -1,0 +1,502 @@
+.hero-section{
+   position: relative;
+
+   width: 100vw;
+
+   min-height: 100vh;
+
+   display: flex;
+   align-items: center;
+
+   padding: 3rem 2rem 5rem;
+
+   overflow: hidden;
+
+   background: #000;
+}
+
+/* BACKGROUND */
+.hero-background{
+   position: absolute;
+
+   inset: 0;
+
+   z-index: -10;
+
+   background: #000000;
+}
+
+.hero-glow-top{
+   position: absolute;
+
+   top: 0;
+   left: 50%;
+
+   transform: translateX(-50%);
+
+   width: 1200px;
+   height: 800px;
+
+   border-radius: 50%;
+
+   background: rgba(0, 0, 0, 0.05);
+
+   filter: blur(120px);
+}
+
+.hero-glow-bottom{
+   position: absolute;
+
+   bottom: 0;
+   right: 0;
+
+   width: 600px;
+   height: 600px;
+
+   border-radius: 50%;
+
+   background: rgba(255,255,255,0.03);
+
+   filter: blur(100px);
+}
+
+/* CONTAINER */
+
+.hero-container{
+   width: 100%;
+
+   padding-left: 2rem;
+   padding-right: 2rem;
+
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+
+   gap: 3rem;
+
+   align-items: center;
+
+   position: relative;
+}
+
+/* LEFT */
+.hero-left{
+   display: flex;
+   flex-direction: column;
+
+   align-items: flex-start;
+
+   gap: 2rem;
+
+}
+
+/* BADGE */
+
+.hero-badge{
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   width: fit-content;
+
+   padding: 0.1rem 1rem;
+
+   border-radius: 999px;
+
+   background: rgba(255,255,255,0.05);
+
+   border: 1px solid rgba(255,255,255,0.08);
+
+   backdrop-filter: blur(12px);
+
+   font-size: 12px;
+
+   color: #9ca3af;
+
+   letter-spacing: 0.1em;
+
+   text-transform: uppercase;
+}
+
+.hero-badge-dot{
+   width: 6px;
+   height: 6px;
+
+   border-radius: 50%;
+
+   background: white;
+
+   animation: pulseGlow 2s infinite;
+}
+
+/* TITLE */
+/* DRONE */
+
+/* .hero-drone{
+   position: absolute;
+
+   top:  100px;
+
+   left: -40px;
+
+   width: 320px;
+   height: 220px;
+
+   z-index: 1;
+
+   pointer-events: none;
+} */
+.hero-drone iframe,
+.hero-drone canvas{
+   background: transparent !important;
+}
+/* SPLINE CANVAS */
+
+.hero-drone canvas{
+   width: 100% !important;
+   height: 100% !important;
+}
+
+/* FLOAT ANIMATION */
+
+
+
+.hero-title{
+   width: 100%;
+
+   text-align: left;
+
+   font-size: clamp(4rem,10vw,9rem);
+
+   font-weight: bold;
+
+   line-height: 0.9;
+   margin: 0px;
+   background: linear-gradient(to right,#ffffff,#9ca3af);
+
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+/* TAGLINE */
+
+.hero-tagline{
+   font-size: 1.15rem;
+
+   width: 100%;
+
+   text-align: left;
+
+   color: rgba(255,255,255,0.75);
+}
+/* DESCRIPTION */
+
+.hero-description{
+   max-width: 620px;
+
+   line-height: 1.8;
+
+   color: #9ca3af;
+
+   font-size: 0.9rem;
+
+   text-align: left;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+   padding: 10px 1.5rem;
+}
+
+/* LOGIN BUTTON */
+.hero-login-btn{
+   display: inline-flex;
+
+   align-items: center;
+   justify-content: center;
+
+   gap: 0.45rem;
+
+   padding: 0.45rem 1.3rem;
+
+   border-radius: 999px;
+
+   background: white;
+   color: black;
+
+   text-decoration: none;
+
+   font-size: 14px;
+   font-weight: 600;
+
+   line-height: 1;
+
+   transition: all 0.5s ease;
+}
+.hero-login-btn:hover{
+   transform: scale(1.04);
+
+   box-shadow:
+      0 0 40px rgba(255,255,255,0.3);
+}
+
+/* FEATURE BUTTON */
+
+.hero-feature-btn{
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+
+   padding: 0.9rem 1.5rem;
+
+   border-radius: 999px;
+
+   background: rgba(255,255,255,0.05);
+
+   border: 1px solid rgba(255,255,255,0.08);
+
+   backdrop-filter: blur(12px);
+
+   text-decoration: none;
+
+   color: white;
+
+   font-size: 14px;
+   font-weight: 600;
+
+   transition: all 0.5s ease;
+}
+
+.hero-feature-btn:hover{
+   transform: scale(1.04);
+   background: rgba(255,255,255,0.1);
+}
+
+/* ICON */
+
+.hero-btn-icon{
+   width: 16px;
+   height: 16px;
+}
+
+.arrow-move{
+   transition: transform 0.4s ease;
+}
+
+.hero-feature-btn:hover .arrow-move{
+   transform: translateX(4px);
+}
+
+/* RIGHT */
+
+.hero-right{
+   position: relative;
+
+   height: 600px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* ORB GLOW */
+
+.hero-orb-glow{
+   position: absolute;
+
+   width: 420px;
+   height: 420px;
+
+   border-radius: 50%;
+
+   background: rgba(255,255,255,0.06);
+
+   filter: blur(80px);
+
+   animation: pulseGlow 4s infinite;
+}
+
+/* CIRCLES */
+
+.hero-circle-one{
+   position: absolute;
+
+   width: 480px;
+   height: 480px;
+
+   border-radius: 50%;
+
+   border: 1px solid rgba(255,255,255,0.1);
+
+   animation: spinSlow 30s linear infinite;
+}
+
+.hero-circle-two{
+   position: absolute;
+
+   width: 560px;
+   height: 560px;
+
+   border-radius: 50%;
+
+   border: 1px solid rgba(255,255,255,0.05);
+
+   animation: spinReverse 60s linear infinite;
+}
+
+/* ORB IMAGE */
+
+.hero-orb-image{
+   position: relative;
+
+   width: 100%;
+   max-width: 1000px;
+
+   animation: floatOrb 5s ease-in-out infinite;
+
+   filter:
+      drop-shadow(0 0 80px rgba(255,255,255,0.25));
+}
+
+/* SCROLL */
+
+.scroll-indicator{
+   position: absolute;
+
+   bottom: 2rem;
+   left: 50%;
+
+   transform: translateX(-50%);
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 0.5rem;
+
+   font-size: 12px;
+
+   color: #9ca3af;
+
+   letter-spacing: 0.3em;
+
+   text-transform: uppercase;
+
+   animation: fadeIn 2s ease;
+}
+
+.scroll-line{
+   width: 1px;
+   height: 40px;
+
+   background:
+      linear-gradient(to bottom,
+      rgba(255,255,255,0.6),
+      transparent);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+   .hero-container{
+      grid-template-columns: 1fr;
+   }
+
+   .hero-right{
+      height: 500px;
+   }
+
+}
+
+@media(max-width:768px){
+
+   .hero-right{
+      height: 400px;
+   }
+
+}
+
+/* ANIMATIONS */
+
+@keyframes rise{
+
+   from{
+      opacity: 0;
+      transform: translateY(40px);
+   }
+
+   to{
+      opacity: 1;
+      transform: translateY(0);
+   }
+
+}
+
+@keyframes fadeIn{
+
+   from{
+      opacity: 0;
+   }
+
+   to{
+      opacity: 1;
+   }
+
+}
+
+@keyframes floatOrb{
+
+   0%{
+      transform: translateY(0px);
+   }
+
+   50%{
+      transform: translateY(-20px);
+   }
+
+   100%{
+      transform: translateY(0px);
+   }
+
+}
+
+@keyframes spinSlow{
+
+   from{
+      transform: rotate(0deg);
+   }
+
+   to{
+      transform: rotate(360deg);
+   }
+
+}
+
+@keyframes spinReverse{
+
+   from{
+      transform: rotate(360deg);
+   }
+
+   to{
+      transform: rotate(0deg);
+   }
+
+}
+
+@keyframes pulseGlow{
+
+   0%{
+      opacity: 0.7;
+   }
+
+   50%{
+      opacity: 1;
+   }
+
+   100%{
+      opacity: 0.7;
+   }
+
+}

@@ -1,0 +1,210 @@
+/* SECTION */
+
+.team-section{
+   position: relative;
+
+   padding: 8rem 1.5rem;
+}
+
+/* CONTAINER */
+
+.team-container{
+   max-width: 1200px;
+   margin: auto;
+}
+
+/* TOP */
+
+.team-top{
+   max-width: 700px;
+
+   margin: auto;
+   margin-bottom: 5rem;
+
+   text-align: center;
+
+   animation: rise 1s ease;
+}
+
+.team-small-title{
+   font-size: 12px;
+
+   letter-spacing: 0.3em;
+
+   text-transform: uppercase;
+
+   color: #9ca3af;
+}
+
+.team-heading{
+   margin-top: 1rem;
+
+   font-size: 4rem;
+   font-weight: bold;
+
+   line-height: 1.2;
+
+   background:
+      linear-gradient(to right,#ffffff,#9ca3af);
+
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+/* GRID */
+
+.team-grid{
+   display: grid;
+
+   grid-template-columns: repeat(4,1fr);
+
+   gap: 1.3rem;
+}
+
+/* CARD */
+
+.team-card{
+   position: relative;
+
+   padding: 1.3rem;
+
+   border-radius: 1.8rem;
+
+   background: rgba(255,255,255,0.05);
+
+   border: 1px solid rgba(255,255,255,0.08);
+
+   backdrop-filter: blur(16px);
+
+   overflow: hidden;
+
+   transition: all 0.7s ease;
+}
+
+.team-card:hover{
+   transform: translateY(-10px);
+
+   border-color: rgba(255,255,255,0.3);
+
+   box-shadow:
+      0 30px 80px -20px rgba(255,255,255,0.15);
+}
+
+/* IMAGE */
+
+.team-image-wrapper{
+   position: relative;
+
+   overflow: hidden;
+
+   border-radius: 1.2rem;
+
+   margin-bottom: 1rem;
+
+   aspect-ratio: 4/5;
+}
+
+.team-image{
+   width: 100%;
+   height: 100%;
+
+   object-fit: cover;
+
+   filter: grayscale(100%);
+
+   transition: all 0.7s ease;
+}
+
+.team-card:hover .team-image{
+   transform: scale(1.05);
+
+   filter: grayscale(0%);
+}
+
+/* OVERLAY */
+
+.team-image-overlay{
+   position: absolute;
+   inset: 0;
+
+   background:
+      linear-gradient(
+         to top,
+         rgba(0,0,0,0.8),
+         transparent,
+         transparent
+      );
+}
+
+/* CONTENT */
+
+.team-name{
+   font-size: 1.1rem;
+   font-weight: 600;
+
+   color: white;
+}
+
+.team-role{
+   margin-top: 0.4rem;
+
+   font-size: 12px;
+
+   text-transform: uppercase;
+
+   letter-spacing: 0.08em;
+
+   color: #9ca3af;
+}
+
+.team-desc{
+   margin-top: 1rem;
+
+   font-size: 14px;
+
+   line-height: 1.7;
+
+   color: rgba(255,255,255,0.7);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+   .team-grid{
+      grid-template-columns: repeat(2,1fr);
+   }
+
+   .team-heading{
+      font-size: 3rem;
+   }
+
+}
+
+@media(max-width:768px){
+
+   .team-grid{
+      grid-template-columns: 1fr;
+   }
+
+   .team-heading{
+      font-size: 2.3rem;
+   }
+
+}
+
+/* ANIMATION */
+
+@keyframes rise{
+
+   from{
+      opacity: 0;
+      transform: translateY(40px);
+   }
+
+   to{
+      opacity: 1;
+      transform: translateY(0);
+   }
+
+}

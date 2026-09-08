@@ -1,0 +1,62 @@
+/* CONTAINER */
+
+.particles-container{
+   position: absolute;
+
+   inset: 0;
+
+   overflow: hidden;
+
+   pointer-events: none;
+}
+
+/* PARTICLE */
+
+.particle{
+   position: absolute;
+
+   border-radius: 50%;
+
+background: rgba(255,255,255,0.8);
+
+   box-shadow:
+      0 0 8px rgba(255,255,255,0.6);
+
+   animation-name: drift;
+
+   animation-timing-function: linear;
+
+   animation-iteration-count: infinite;
+}
+
+/* ANIMATION */
+
+@keyframes drift{
+
+   0%{
+      transform:
+         translateY(0px)
+         translateX(0px);
+
+      opacity: 0;
+   }
+
+   10%{
+      opacity: 1;
+   }
+
+   50%{
+      transform:
+         translateY(-40px)
+         translateX(20px);
+   }
+
+   100%{
+      transform:
+         translateY(-80px)
+         translateX(-20px);
+
+      opacity: 0;
+   }
+
+}
