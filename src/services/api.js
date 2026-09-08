@@ -176,7 +176,30 @@ export async function getTeacherAttendanceRecords(teacherId) {
 }
 
 export async function getTeacherAttendanceStatus(teacherId) {
-  return request(`/attendance/status?teacherId=${encodeURIComponent(teacherId)}`);
+  try {
+    return await request(`/attendance/status?teacherId=${encodeURIComponent(teacherId)}`);
+  } catch (error) {
+    if (!error.message.includes("(404)")) throw error;
+
+    const records = await getTeacherAttendanceRecords(teacherId);
+    const today = new Date();
+    const todayRecord = records.find((record) => {
+      const recordDate = new Date(record.attendanceDate);
+      return recordDate.toDateString() === today.toDateString();
+    });
+    const status = todayRecord?.status === "Present"
+      ? "PRESENT"
+      : todayRecord?.status === "Absent"
+      ? "ABSENT"
+      : "NOT_MARKED";
+
+    return {
+      status,
+      attendance: todayRecord || null,
+      canMarkAttendance: status === "NOT_MARKED",
+      startTime: "08:00",
+    };
+  }
 }
 
 export async function markAttendance(attendanceData) {
