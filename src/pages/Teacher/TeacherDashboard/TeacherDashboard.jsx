@@ -32,12 +32,20 @@ export default function TeacherDashboard() {
       setLoading(true);
       setError("");
       try {
-        const [noticesData, eventsData, tasksData, attendanceData] = await Promise.all([
+        const [noticesResult, eventsResult, tasksResult, attendanceResult] = await Promise.allSettled([
           getNotices(),
           getCalendarDates(),
           getTasks(),
           getTeacherAttendanceStatus(teacher.teacherID),
         ]);
+
+        const coreResults = [noticesResult, eventsResult, tasksResult];
+        const failedCoreRequest = coreResults.find((result) => result.status === "rejected");
+        if (failedCoreRequest) throw failedCoreRequest.reason;
+
+        const noticesData = noticesResult.value;
+        const eventsData = eventsResult.value;
+        const tasksData = tasksResult.value;
 
         setNotices(noticesData || []);
         setEvents(eventsData || []);
@@ -49,8 +57,13 @@ export default function TeacherDashboard() {
           )
         );
 
-        setAttendanceDetails(attendanceData);
-        setAttendanceStatus(attendanceData.status);
+        if (attendanceResult.status === "fulfilled") {
+          setAttendanceDetails(attendanceResult.value);
+          setAttendanceStatus(attendanceResult.value.status);
+        } else {
+          setAttendanceDetails(null);
+          setAttendanceStatus("NOT_MARKED");
+        }
       } catch (fetchError) {
         setError(fetchError.message || "Something went wrong.");
       } finally {
